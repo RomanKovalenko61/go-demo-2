@@ -7,26 +7,9 @@ import (
 // В цикле спрашиваем ввод транзакций: -10, 10, 40.5
 // Добавлять каждую в массив транзакций
 // Вывести массив
+// Вывести сумму баланса в консоль
 
 func main() {
-
-	tr1 := []int{1, 2, 3}
-	tr2 := []int{4, 5, 6}
-	tr1 = append(tr1, tr2...)
-	fmt.Println(tr1)
-
-	for index, value := range tr1 {
-		fmt.Println(index, value)
-	}
-
-	for _, value := range tr1 {
-		fmt.Println(value)
-	}
-
-	for index := range tr1 {
-		fmt.Println(tr1[index])
-	}
-
 	transactions := []float64{}
 	for {
 		transaction := scanTransaction()
@@ -36,7 +19,7 @@ func main() {
 		transactions = append(transactions, transaction)
 	}
 
-	fmt.Println(transactions)
+	fmt.Printf("Ваш баланс: %.2f", getSum(transactions))
 }
 
 func scanTransaction() float64 {
@@ -44,4 +27,12 @@ func scanTransaction() float64 {
 	fmt.Println("Введите транзакцию или q для выхода")
 	fmt.Scan(&transaction)
 	return transaction
+}
+
+func getSum(arr []float64) float64 {
+	sum := 0.0
+	for _, value := range arr {
+		sum += value
+	}
+	return sum
 }
