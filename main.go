@@ -9,8 +9,13 @@ import (
 // Вывести массив
 
 func main() {
-	transactions := []float64{}
 
+	tr1 := []int{1, 2, 3}
+	tr2 := []int{4, 5, 6}
+	tr1 = append(tr1, tr2...)
+	fmt.Println(tr1)
+
+	transactions := []float64{}
 	for {
 		transaction := scanTransaction()
 		if transaction == 0 {
