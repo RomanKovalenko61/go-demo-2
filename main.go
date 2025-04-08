@@ -4,10 +4,27 @@ import (
 	"fmt"
 )
 
+// В цикле спрашиваем ввод транзакций: -10, 10, 40.5
+// Добавлять каждую в массив транзакций
+// Вывести массив
+
 func main() {
-	transactions := []int{1, 2, 3, 4, 5, 6}
-	temp := transactions
-	transactions = append(transactions, 100)
-	fmt.Println(transactions[1:])
-	fmt.Println(temp)
+	transactions := []float64{}
+
+	for {
+		transaction := scanTransaction()
+		if transaction == 0 {
+			break
+		}
+		transactions = append(transactions, transaction)
+	}
+
+	fmt.Println(transactions)
+}
+
+func scanTransaction() float64 {
+	var transaction float64
+	fmt.Println("Введите транзакцию или q для выхода")
+	fmt.Scan(&transaction)
+	return transaction
 }
