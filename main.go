@@ -10,6 +10,18 @@ import (
 // Вывести сумму баланса в консоль
 
 func main() {
+	tr := make([]string, 0, 2)
+	//tr[0] = "str0"
+	fmt.Println(len(tr), cap(tr))
+	tr = append(tr, "str1")
+	fmt.Println(len(tr), cap(tr))
+	tr = append(tr, "str2")
+	fmt.Println(len(tr), cap(tr))
+	tr = append(tr, "str3")
+	fmt.Println(len(tr), cap(tr))
+	fmt.Println(tr)
+
+
 	transactions := []float64{}
 	for {
 		transaction := scanTransaction()
